@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Ramanathan | Automation & Robotics Engineer — Berlin</title>
+<meta name="description" content="Rahul Ramanathan — Automation & Robotics Engineer with 7+ years experience. PLC programming, robotics integration. Based in Berlin, Germany.">
+<meta name="author" content="Rahul Ramanathan">
+<link rel="canonical" href="https://rahulramanathan011.github.io">
+<meta property="og:title" content="Rahul Ramanathan — Automation Engineer">
+<meta property="og:description" content="7+ years PLC & Robotics Engineering. Based in Berlin.">
+<meta property="og:url" content="https://rahulramanathan011.github.io">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0c0f; --surface: #111318; --surface2: #181c22;
+    --border: #1e2530; --accent: #00c8ff; --accent2: #ff6b2b;
+    --text: #e8edf2; --muted: #5a6475; --white: #FFFFFF;
+    --mono: 'Share Tech Mono', monospace;
+    --sans: 'Barlow', sans-serif;
+    --cond: 'Barlow Condensed', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(0,200,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,200,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none; z-index: 0;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,12,15,0.94); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 0 5%; height: 56px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: var(--mono); font-size: 15px; font-weight: 850; color: var(--accent); letter-spacing: 0.08em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-family: var(--mono); font-size: 12px; font-weight: 850; color: var(--white); text-decoration: none; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  section { position: relative; z-index: 1; padding: 100px 10% 80px; }
+  .section-label { font-family: var(--sans-serif); font-size: 13px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; display: block; height: 1px; width: 48px; background: var(--accent); opacity: 0.4; }
+  h2 { font-family: var(--cond); font-size: 2.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 2.5rem; color: var(--text); }
+
+  /* HERO */
+  #hero { min-height: 100vh; display: flex; align-items: center; padding-top: 56px; position: relative; overflow: hidden; }
+  .hero-badge { font-family: var(--sans-serif); font-size: 14px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+  .status-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  .hero-name { font-family: var(--cond); font-size: clamp(3rem, 7vw, 6rem); 
+  ; line-height: 0.95; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
+  .hero-name span { display: block; color: var(--accent); }
+  .hero-title { font-family: var(--mono); font-size: 17px; color: var(--white); letter-spacing: 0.1em; margin-bottom: 2rem; }
+  .hero-title em { color: var(--accent2); font-style: normal; }
+  .hero-desc { font-size: 17px; color: #8a96a8; max-width: 480px; line-height: 1.7; margin-bottom: 2.5rem; }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { font-family: var(--sans-serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: transparent; border: 1px solid rgba(0,200,255,0.4); padding: 12px 28px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.1s; display: inline-block; }
+  .btn-primary:hover { background: #33d4ff; transform: translateY(-1px); color: var(--bg); }
+  .btn-outline { font-family: var(--sans-serif); font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); background: transparent; border: 1px solid rgba(0,200,255,0.4); padding: 12px 28px; cursor: pointer; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+  .btn-outline:hover { background: #33d4ff; transform: translateY(-1px); color: var(--bg); }
+  .hero-stats { position: absolute; right: 10%; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-block { text-align: right; border-right: 2px solid var(--border); padding-right: 1.2rem; }
+  .stat-block.active { border-right-color: var(--accent); }
+  .stat-block:hover { transform: translateY(-2px); background: transparent; border-color: var(--accent); }
+  .stat-num { font-family: var(--cond); font-size: 2.4rem; font-weight: 700; color: var(--text); line-height: 1; }
+  .stat-block.active .stat-num { color: var(--accent); }
+  .stat-label { font-family: var(--sans); font-size: 12px; font-weight: 500; color: var(--white); letter-spacing: 0.15em; text-transform: uppercase; }
+
+  /* ABOUT */
+  #about { background: var(--surface); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-text p { color: #8a96a8; margin-bottom: 1.2rem; font-size: 16px; }
+  .about-panel { background: var(--bg); border: 1px solid var(--border); padding: 2rem; font-family: var(--sans); font-size: 13px; }
+  .panel-header { font-size: 13px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .panel-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid rgba(30,37,48,0.8); }
+  .panel-row:last-child { border-bottom: none; }
+  .panel-key { color: #8a96a8; font-size: 13px; }
+  .panel-val { color: var(--text); font-size: 14px; }
+  .panel-val.accent { color: var(--accent); }
+  .panel-val.orange { color: var(--accent2); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; position: relative; transition: border-color 0.2s, transform 0.2s; }
+  .skill-card:hover { border-color: rgba(0,200,255,0.3); transform: translateY(-2px); }
+  .skill-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+  .skill-card:hover::before { opacity: 1; }
+  .skill-icon { font-size: 22px; margin-bottom: 1rem; color: var(--accent); font-family: var(--mono); }
+  .skill-title { font-family: var(--cond); font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.75rem; color: var(--text); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.75rem; }
+  .tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: #8a96a8; background: var(--bg); border: 1px solid var(--border); padding: 3px 8px; text-transform: uppercase; }
+  .skill-bar { height: 2px; background: var(--border); margin-top: 1rem; overflow: hidden; }
+  .skill-fill { height: 100%; background: var(--accent); transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1); width: 0; }
+
+  /* EXPERIENCE */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--accent), transparent); }
+  .timeline-item { position: relative; margin-bottom: 3rem; padding-left: 2rem; }
+  .timeline-item::before { content: ''; position: absolute; left: -2rem; top: 6px; width: 9px; height: 9px; background: var(--accent); border: 2px solid var(--bg); border-radius: 50%; box-shadow: 0 0 0 2px var(--accent); }
+  .timeline-meta { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .timeline-role { font-family: var(--cond); font-size: 1.4rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+  .timeline-company { font-size: 14px; color: var(--accent2); margin-bottom: 0.75rem; font-family: var(--mono); }
+  .timeline-desc { color: #7a8696; font-size: 15px; max-width: 600px; }
+  .timeline-desc ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+  .timeline-desc li { margin-bottom: 0.4rem; }
+
+  /* ACHIEVEMENTS */
+  .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+  .achievement-card { background: var(--surface); border: 1px solid var(--border); padding: 1.5rem; border-left: 3px solid var(--accent); }
+  .ach-num { font-family: var(--cond); font-size: 2.2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.3rem; }
+  .ach-label { font-family: var(--mono); font-size: 13px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .ach-desc { font-size: 14px; color: #7a8696; }
+
+  /* PROJECTS */
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .project-card { background: var(--surface); border: 1px solid var(--border); overflow: hidden; transition: border-color 0.2s, transform 0.2s; }
+  .project-card:hover { border-color: rgba(0,200,255,0.35); transform: translateY(-3px); }
+  .project-header { background: var(--surface2); border-bottom: 1px solid var(--border); padding: 1rem 1.25rem; display: flex; align-items: center; justify-content: space-between; }
+  .project-dots { display: flex; gap: 5px; }
+  .project-dots span { width: 8px; height: 8px; border-radius: 50%; }
+  .project-dots span:nth-child(1) { background: #ff5f57; }
+  .project-dots span:nth-child(2) { background: #ffbd2e; }
+  .project-dots span:nth-child(3) { background: #28c840; }
+  .project-type { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+  .project-body { padding: 1.5rem 1.25rem; }
+  .project-title { font-family: var(--cond); font-size: 1.2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+  .project-title .accent { color: var(--accent); }
+  .project-desc { font-size: 14px; color: #7a8696; margin-bottom: 1rem; line-height: 1.6; }
+  .project-status { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; display: inline-block; }
+  .status-active { color: #00c8ff; background: rgba(0,200,255,0.08); border: 1px solid rgba(0,200,255,0.25); }
+  .status-wip { color: var(--accent2); background: rgba(255,107,43,0.08); border: 1px solid rgba(255,107,43,0.25); }
+  .status-complete { color: #28c840; background: rgba(40,200,64,0.08); border: 1px solid rgba(40,200,64,0.25); }
+
+  /* CONTACT */
+  #contact { background: var(--surface); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .contact-info p { color: #8a96a8; font-size: 16px; margin-bottom: 2rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link { font-family: var(--mono); font-size: 13px; color: #8a96a8; text-decoration: none; display: flex; align-items: center; gap: 12px; transition: color 0.2s; }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link-icon { width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; transition: border-color 0.2s; }
+  .contact-link:hover .contact-link-icon { border-color: var(--accent); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-label { font-family: var(--mono); font-size: 10px; color: #8a96a8; letter-spacing: 0.15em; text-transform: uppercase; }
+  .form-input { background: var(--bg); border: 1px solid var(--border); color: #8a96a8 ; padding: 10px 14px; font-family: var(--sans); font-size: 14px; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: rgba(0,200,255,0.5); }
+  .form-input::placeholder { color: #8a96a8 }
+  textarea.form-input { resize: vertical; min-height: 110px; }
+
+  /* LANGUAGES */
+  .lang-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .lang-pill { font-family: var(--sans-serif); font-size: 13px; font-weight: 500; text-transform: uppercase; padding: 6px 16px; border: 1px solid var(--border); color: #8a96a8; }
+  .lang-pill span { color: var(--accent); margin-left: 8px; }
+
+  footer { position: relative; z-index: 1; background: var(--bg); border-top: 1px solid var(--border); padding: 1.5rem 10%; display: flex; align-items: center; justify-content: space-between; }
+  .footer-text { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+  .footer-text span { color: var(--accent); }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-badge, .hero-name, .hero-title, .hero-desc, .hero-cta, .hero-stats { animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-badge { animation-delay: 0.1s; } .hero-name { animation-delay: 0.2s; } .hero-title { animation-delay: 0.3s; } .hero-desc { animation-delay: 0.4s; } .hero-cta { animation-delay: 0.5s; } .hero-stats { animation-delay: 0.6s; }
+
+  @media (max-width: 768px) {
+    .hero-stats { display: none; }
+    .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+    section { padding: 80px 6% 60px; }
+    .nav-links { gap: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Rahul Ramanathan</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div style="flex:1;">
+    <div class="hero-badge"><span class="status-dot"></span>Based in Berlin, Germany</div>
+    <h1 class="hero-name">Rahul<br><span>Ramanathan</span></h1>
+    <p class="hero-title">Automation &amp; Robotics Engineer &nbsp;/&nbsp; <em>7+ Years Industrial Experience</em></p>
+    <p class="hero-desc">Automating the physical world — from PLC systems and robotic cells to high-precision manufacturing lines and next-generation open SCADA platforms — wherever automation can eliminate human error and push production efficiency further..</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-block"><div class="stat-num">7+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-block"><div class="stat-num">25+</div><div class="stat-label">Projects Delivered</div></div>
+    <div class="stat-block"><div class="stat-num">92%</div><div class="stat-label">Personal Success Rate</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">01 &mdash; About</div>
+  <h2>Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Automation and Robotics Engineer | 7+ Years in Industrial System Integration and process optimization, specialising in robotic design and laboratory automation.</p>
+      <p>With over 7 years of hands-on experience in robotics, PLC programming, and process automation, I specialize in building systems that are fast, reliable, and production-ready.</p>
+      <p>Currently working at Inuru in Brandenburg, building Siemens PLC systems for semiconductor and OLED manufacturing. Also actively developing an open-source SCADA platform to bring industrial-grade monitoring to everyone — for free.</p>
+    </div>
+    <div class="about-panel">
+      <div class="panel-header">Profile</div>
+      <div class="panel-row"><span class="panel-key">Name</span><span class="panel-val">"Rahul Ramanathan"</span></div>
+      <div class="panel-row"><span class="panel-key">Role</span><span class="panel-val">"Senior Automation Engineer"</span></div>
+      <div class="panel-row"><span class="panel-key">Working at</span><span class="panel-val">"Inuru GmbH"</span></div>
+      <div class="panel-row"><span class="panel-key">Location</span><span class="panel-val">"Wildau, Brandenburg, Germany"</span></div>
+      <div class="panel-row"><span class="panel-key">Education</span><span class="panel-val">"Diploma Mechatronics"</span></div>
+      <div class="panel-row"><span class="panel-key">Current_Project</span><span class="panel-val orange">"Open SCADA (WIP)"</span></div>
+      <div class="panel-row"><span class="panel-key">Phone</span><span class="panel-val accent">"+49 176 20733763"</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">02 &mdash; Skills</div>
+  <h2>Technical Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">[Controls]</div>
+      <div class="skill-title">PLC & HMI Programming</div>
+      <p style="font-size:15px;color:#8a96a8;line-height:1.6">Full-cycle PLC programming in Ladder Logic, FBD, SCL, and Structured Text across all major platforms — from building robust third-party device communication layers (MODBUS, PROFINET, SMEMA) to diagnosing and solving the kind of complex control logic that brings production lines to a halt.</p>
+      <div class="skill-tags"><span class="tag">Siemens</span><span class="tag">Rockwell</span><span class="tag">Beckhoff</span><span class="tag">Mitsubishi</span><span class="tag">Delta</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">[BOT]</div>
+      <div class="skill-title">Robotics</div>
+      <p style="font-size:15px;color:#8a96a8;line-height:1.6">Programming and integration of industrial robots for assembly, dispensing, stacking, and pick-and-place applications — covering Articulated, SCARA, Cobot, and XYZ Cartesian robot platforms.</p>
+      <div class="skill-tags"><span class="tag">Yaskawa</span><span class="tag">KUKA</span><span class="tag">Fanuc</span><span class="tag">Dobot</span><span class="tag">SCARA</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">[NET]</div>
+      <div class="skill-title">Industrial Networking</div>
+      <p style="font-size:15px;color:#8a96a8;line-height:1.6">Fieldbus and industrial Ethernet protocols for upstream/downstream machine communication.</p>
+      <div class="skill-tags"><span class="tag">Profinet</span><span class="tag">Modbus</span><span class="tag">Ethernet IP</span><span class="tag">Profibus</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">[SYS]</div>
+      <div class="skill-title">System Integration</div>
+      <p style="font-size:15px;color:#8a96a8;line-height:1.6">Full project lifecycle from hardware selection and BOM to commissioning and testing.</p>
+      <div class="skill-tags"><span class="tag">Servo Motors</span><span class="tag">Vision Systems</span><span class="tag">Sensors</span><span class="tag">Actuators</span><span class="tag">SMEMA</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">[MGT]</div>
+      <div class="skill-title">Project Management</div>
+      <p style="font-size:15px;color:#8a96a8;line-height:1.6">Led 25+ automation projects independently, including budgeting, hardware selection, and client coordination.</p>
+      <div class="skill-tags"><span class="tag">Budget Planning</span><span class="tag">Documentation</span><span class="tag">Commissioning</span></div>
+      <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">03 &mdash; Experience</div>
+  <h2>Work History</h2>
+
+  <!-- Key achievements row -->
+  <div class="achievements-grid">
+    <div class="achievement-card"><div class="ach-num">55%</div><div class="ach-label">Production Efficiency Boost </div><div class="ach-desc">Increased in throughput (42 → 65 SPM) on a multi-head tapping machine by integrating Beckhoff PLC and servo drives into the existing Delta PLC architecture</div></div>
+    <div class="achievement-card"><div class="ach-num">€16.5K</div><div class="ach-label">Saved Per Robot</div><div class="ach-desc">Via in-house robot programming initiatives</div></div>
+    <div class="achievement-card"><div class="ach-num">25</div><div class="ach-label">Projects Delivered</div><div class="ach-desc">98% compliance across all automation projects</div></div>
+    <div class="achievement-card"><div class="ach-num">€90K</div><div class="ach-label">Largest Budget Managed</div><div class="ach-desc">Independent project ownership at Robotica FA</div></div>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-meta">05/2023 &mdash; Present</div>
+      <div class="timeline-role">Senior Automation Engineer</div>
+      <div class="timeline-company">// Inuru &mdash; Wildau, Brandenburg (OLED / Semiconductor Manufacturing)</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Took full ownership of all PLC and automation systems following the departure of the senior engineer, ensuring zero disruption to ongoing semiconductor and OLED production</li>
+          <li>Sole automation engineer responsible for the entire machine portfolio — spanning PLC programming, robot integration, HMI development, and cross-line troubleshooting across the facility</li>
+          <li>Independently developing an open-source SCADA platform aimed at bringing industrial-grade monitoring and control to any production environment — completely free of charge</li>
+        </ul>
+      </div>
+	</div>
+    <div class="timeline-item">
+      <div class="timeline-meta">08/2023 &mdash; 04/2026</div>
+      <div class="timeline-role">Automation Engineer</div>
+      <div class="timeline-company">// Inuru &mdash; Wildau, Brandenburg (OLED / Semiconductor Manufacturing)</div>
+      <div class="timeline-desc">
+        <ul>
+          <li>Designed and deployed a Siemens PLC-based control system for a pilot OLED production plant, successfully scaling it to full-scale manufacturing with reduced operator dependency</li>
+          <li>Programmed vacuum press and vacuum lamination machines with fully automated substrate placement using a Dobot Cobot, establishing a hands-free ISO 5 cleanroom process</li>
+          <li>Implemented upstream and downstream communication using MODBUS and SMEMA protocols, ensuring seamless line integration across the entire production facility</li>
+          <li>Established a Cobot in a critical production area, replacing manual intervention and improving process safety and repeatability</li>
+          <li>Managed 3 industrial robotics projects end-to-end, overseeing system integration, commissioning, and handover</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-meta">12/2021 &mdash; 06/2023</div>
+      <div class="timeline-role">Lead Engineer — Electrical &amp; Software</div>
+      <div class="timeline-company">// Robotica FA Solutions &mdash; Coimbatore, Tamil Nadu (Special Purpose Machines)</div>
+      <div class="timeline-desc">
+        <ul>
+           <li>Boosted production efficiency by 25% by commissioning an Epson SCARA robot for EV battery sealant dispensing — the first engineer at the company to convert CAD geometry directly into robot path points via HMI</li>
+           <li>Independently led 15 automation projects from concept to customer handover, achieving a 92% success rate with budgets up to €90,000</li>
+           <li>Upgraded a multi-head tapping machine for a London-based customer by integrating Beckhoff PLC and servo drives alongside the existing Delta PLC — improving output from 42 SPM to 65 SPM without disrupting the main system</li>
+           <li>Managed a team of 6 engineers, overseeing hardware selection, budget planning, and full project delivery across multiple simultaneous builds</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-meta">03/2019 &mdash; 11/2021</div>
+      <div class="timeline-role">Automation Engineer</div>
+      <div class="timeline-company">// Integra Automation Pvt. Ltd &mdash; Coimbatore, Tamil Nadu (Foundry & Machine Shop)</div>
+      <div class="timeline-desc">
+        <ul>
+           <li>Led the in-house installation and commissioning of two articulated robots integrated with Siemens S7-1200, delivering €30,000 in total cost savings by eliminating third-party contractor costs</li>
+           <li>Automated a manual shop floor position through servo motor and PLC integration, removing the need for a dedicated operator and improving overall line efficiency</li>
+           <li>Recalibrated an articulated robot home position entirely in-house, cutting €1,000 in outsourced service costs with zero production downtime</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-meta">06/2018 &mdash; 01/2019</div>
+      <div class="timeline-role">Robotics Engineer</div>
+      <div class="timeline-company">// Sundaram Auto Components Pvt Ltd &mdash; Hosur, Tamil Nadu (Automotive Plastics)</div>
+      <div class="timeline-desc">
+        <ul>
+         <li>Supervised and maintained a fleet of 20 Cartesian robots (18 Yushin, 2 Wittmann Battenfeld) and 15 articulated robots (14 Yaskawa 10kg, 1 KUKA 20kg), ensuring maximum uptime across high-volume automotive production lines</li>
+         <li>Redesigned a manual fixture into a fully automated relay-controlled system, significantly reducing cycle time and minimising operator dependency</li>
+         <li>Integrated an articulated robot with laser cutting technology for the TATA project, eliminating manual handling steps and improving process consistency</li>
+         <li>Developed and executed in-house automation projects using Yaskawa robots, driving cost savings and increasing production throughput</li> 
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">04 &mdash; Projects</div>
+  <h2>Featured Work</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-dots"><span></span><span></span><span></span></div>
+        <div class="project-type">Open Source</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title"><span class="accent">Open</span> SCADA Platform</div>
+        <p class="project-desc">A free, web-based SCADA platform built from scratch. Real-time dashboards, OPC-UA connectivity, alarm management, and historical trending — zero licensing fees.</p>
+        <div class="skill-tags" style="margin-bottom:1rem"><span class="tag">OPC-UA</span><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">InfluxDB</span></div>
+        <span class="project-status status-wip">In Development</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-dots"><span></span><span></span><span></span></div>
+        <div class="project-type">OLED Manufacturing</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title"><span class="accent">OLED</span> Production Line PLC</div>
+        <p class="project-desc">Full Siemens PLC system for pilot-to-production scale-up at Inuru. Includes robotic substrate placement, vacuum press automation, and MODBUS/SMEMA line integration.</p>
+        <div class="skill-tags" style="margin-bottom:1rem"><span class="tag">Siemens TIA</span><span class="tag">Modbus</span><span class="tag">SMEMA</span><span class="tag">Dobot</span><span class="tag">Vacuum</span></div>
+        <span class="project-status status-active">Live</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-header">
+        <div class="project-dots"><span></span><span></span><span></span></div>
+        <div class="project-type">EV / Automotive</div>
+      </div>
+      <div class="project-body">
+        <div class="project-title"><span class="accent">EV Battery</span> Sealant Robot</div>
+        <p class="project-desc">SCARA robot commissioned for EV battery sealant dispensing with Siemens S7-1500 PLC. Increased production efficiency by 45% from 35% and delivered within a €90K project budget.</p>
+        <div class="skill-tags" style="margin-bottom:1rem"><span class="tag">SCARA</span><span class="tag">S7-1500</span><span class="tag">Dispensing</span><span class="tag">EV</span></div>
+        <span class="project-status status-complete">Hand overed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">05 &mdash; Contact</div>
+  <h2>Get in Touch</h2>
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <p>Based in Berlin. Open to automation projects, ready to collaborate for your upcoming projects, or just a conversation about industrial tech.</p>
+      <div class="contact-links">
+        <a href="mailto:rameshrahul011@gmail.com" class="contact-link">
+          <div class="contact-link-icon">@</div>rameshrahul011@gmail.com
+        </a>
+        <a href="tel:+4917620733763" class="contact-link">
+          <div class="contact-link-icon">#</div>+49 176 20733763
+        </a>
+        <a href="https://www.linkedin.com/in/rahulramanathan011" class="contact-link">
+          <div class="contact-link-icon">in</div>linkedin.com/in/rahulramanathan011
+        </a>
+        <a href="https://maps.app.goo.gl/K6HLHyQtmKnaVNcR7" class="contact-link">
+          <div class="contact-link-icon">📍</div>Gürtelstraße 36, Berlin 10247
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <!-- SUCCESS message (hidden by default) -->
+      <div id="form-success" style="display:none;background:rgba(0,200,255,0.08);border:1px solid rgba(0,200,255,0.3);padding:1.2rem 1.5rem;font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:0.05em;">
+        ✓ Message sent! Rahul will get back to you soon.
+      </div>
+      <!-- ERROR message (hidden by default) -->
+      <div id="form-error" style="display:none;background:rgba(255,107,43,0.08);border:1px solid rgba(255,107,43,0.3);padding:1.2rem 1.5rem;font-family:var(--mono);font-size:13px;color:var(--accent2);letter-spacing:0.05em;">
+        ✗ Something went wrong. Please email directly at rameshrahul011@gmail.com
+      </div>
+      <!-- FORM FIELDS -->
+      <div id="contact-form-fields">
+        <div class="form-group"><label class="form-label">Name</label><input id="cf-name" class="form-input" type="text" placeholder="Your name"></div>
+        <div class="form-group"><label class="form-label">Email</label><input id="cf-email" class="form-input" type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label class="form-label">Subject</label><input id="cf-subject" class="form-input" type="text" placeholder="Project inquiry / Collaboration / Other"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea id="cf-message" class="form-input" placeholder="Tell me about your project..."></textarea></div>
+        <!-- ⬇️ REPLACE YOUR_FORMSPREE_ID below after signing up at formspree.io -->
+        <button id="cf-submit" class="btn-primary" style="width:100%;text-align:center;cursor:pointer;" onclick="sendMessage()">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-text">© 2026 <span>Rahul Ramanathan</span> &mdash; Berlin, Germany</span> &mdash;&mdash; Last updated on 30-05-2026</div>
+  <div class="footer-text"><a href="https://rahulramanathan011.github.io" style="color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:11px;">https://rahulramanathan011.github.io</a></div>
+</footer>
+
+<script>
+  const fills = document.querySelectorAll('.skill-fill');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.width + '%'; obs.unobserve(e.target); } });
+  }, { threshold: 0.3 });
+  fills.forEach(f => obs.observe(f));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+  
+   // ── CONTACT FORM ──────────────────────────────────────────────
+  // HOW TO ACTIVATE:
+  // 1. Go to https://formspree.io and sign up free
+  // 2. Click "New Form" → enter email: rameshrahul011@gmail.com
+  // 3. Copy the Form ID (looks like: xpzgkrjw)
+  // 4. Replace YOUR_FORMSPREE_ID below with your actual ID
+  // ──────────────────────────────────────────────────────────────
+  async function sendMessage() {
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+
+    const btn = document.getElementById('cf-submit');
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.style.cursor = 'not-allowed';
+
+    try {
+      const res = await fetch('https://formspree.io/f/xaqkkkay', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message })
+      });
+
+      if (res.ok) {
+        document.getElementById('contact-form-fields').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      document.getElementById('form-error').style.display = 'block';
+      btn.textContent = 'Send Message';
+      btn.style.opacity = '1';
+      btn.style.cursor = 'pointer';
+    }
+  }
+</script>
+</body>
+</html>

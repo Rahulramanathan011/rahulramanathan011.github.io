@@ -163,11 +163,82 @@
   .hero-badge, .hero-name, .hero-title, .hero-desc, .hero-cta, .hero-stats { animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) both; }
   .hero-badge { animation-delay: 0.1s; } .hero-name { animation-delay: 0.2s; } .hero-title { animation-delay: 0.3s; } .hero-desc { animation-delay: 0.4s; } .hero-cta { animation-delay: 0.5s; } .hero-stats { animation-delay: 0.6s; }
 
+  .hamburger { display: none; }
+
+  /* ── MOBILE STYLES ── */
   @media (max-width: 768px) {
+
+    /* NAV — hide text links, show hamburger menu */
+    nav { padding: 0 4%; height: 52px; }
+    .nav-logo { font-size: 12px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 52px; left: 0; right: 0;
+      background: rgba(10,12,15,0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 6%; gap: 0; z-index: 99;
+    }
+    .nav-links.open li { border-bottom: 1px solid var(--border); }
+    .nav-links.open a { display: block; padding: 14px 0; font-size: 13px; }
+    .hamburger {
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 6px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--accent); transition: all 0.3s;
+    }
+
+    /* SECTIONS */
+    section { padding: 76px 5% 56px; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+
+    /* HERO */
+    #hero { padding-top: 52px; min-height: 100svh; flex-direction: column; justify-content: center; }
+    .hero-name { font-size: clamp(2.6rem, 13vw, 4rem); line-height: 0.95; }
+    .hero-title { font-size: 12px; letter-spacing: 0.06em; line-height: 1.6; }
+    .hero-desc { font-size: 15px; max-width: 100%; }
+    .hero-cta { flex-direction: column; gap: 0.75rem; }
+    .btn-primary, .btn-outline { width: 100%; text-align: center; padding: 14px 20px; font-size: 12px; }
     .hero-stats { display: none; }
-    .about-grid, .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
-    section { padding: 80px 6% 60px; }
-    .nav-links { gap: 1rem; }
+
+    /* ABOUT */
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-panel { padding: 1.25rem; }
+    .panel-row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+    .panel-val { font-size: 13px; word-break: break-word; }
+    .lang-grid { gap: 0.75rem; }
+
+    /* SKILLS */
+    .skills-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* EXPERIENCE */
+    .achievements-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .ach-num { font-size: 1.8rem; }
+    .ach-label { font-size: 10px; }
+    .ach-desc { font-size: 12px; }
+    .timeline { padding-left: 1.5rem; }
+    .timeline-item { padding-left: 1.25rem; }
+    .timeline-item::before { left: -1.5rem; }
+    .timeline-role { font-size: 1.15rem; }
+    .timeline-company { font-size: 12px; word-break: break-word; }
+    .timeline-desc { font-size: 14px; }
+
+    /* PROJECTS */
+    .projects-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+    /* CONTACT */
+    .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-link { font-size: 12px; word-break: break-all; }
+
+    /* FOOTER */
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 5%; }
+  }
+
+  @media (max-width: 400px) {
+    .achievements-grid { grid-template-columns: 1fr; }
+    .hero-name { font-size: clamp(2.2rem, 12vw, 3rem); }
   }
 </style>
 </head>
@@ -182,6 +253,9 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -455,8 +529,15 @@
       e.preventDefault();
       const t = document.querySelector(a.getAttribute('href'));
       if (t) t.scrollIntoView({ behavior: 'smooth' });
+      // close mobile menu on link click
+      document.querySelector('.nav-links').classList.remove('open');
     });
   });
+
+  function toggleNav() {
+    const nav = document.querySelector('.nav-links');
+    nav.classList.toggle('open');
+  }
   
    // ── CONTACT FORM ──────────────────────────────────────────────
   // HOW TO ACTIVATE:
